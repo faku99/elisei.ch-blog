@@ -1,4 +1,4 @@
-baseURL = "blog.elisei.ch"
+baseURL = "https://blog.elisei.ch/"
 languageCode = "en-us"
 title = "elisei's blog"
 theme = "archie"
