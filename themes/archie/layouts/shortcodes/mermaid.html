@@ -1,0 +1,17 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+
+<div class="mermaid">
+    {{ safeHTML .Inner }}
+</div>
+
+<script>
+    var currentTheme = getTheme();
+
+    var config = {
+        startOnLoad: true,
+        align: '{{ if .Get "align" }}{{ .Get "align" }}{{ else }}center{{ end }}',
+        theme: (currentTheme == 'dark') ? 'dark' : 'base'
+    };
+
+    mermaid.initialize(config);
+</script>

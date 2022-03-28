@@ -1,0 +1,29 @@
+<footer>
+  <div>
+    <div class="soc">
+      {{- range $index, $key := .Site.Params.Social -}}
+      <div class="soc-icon">
+        <a href=" {{ $key.url }}" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
+      </div>
+      {{- end -}}
+    </div>
+  </div>
+  <div class="footer-info">
+    <div class="copyright">
+      {{ dateFormat "2006" now }} &#9400; {{ with .Site.Copyright }} {{ . }} {{ end }}
+    </div>
+    <div class="hugo-info">
+      Based on <a href="https://github.com/athul/archie">Archie</a> theme</a> | Built with <a
+        href="https://gohugo.io">Hugo</a>
+    </div>
+  </div>
+</footer>
+{{ if not .Site.IsServer }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
+
+{{- if (isset .Site.Params "social") -}}
+<script>
+  feather.replace()
+</script>
+{{- end -}}

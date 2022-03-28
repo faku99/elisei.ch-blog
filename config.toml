@@ -1,0 +1,46 @@
+baseURL = "blog.elisei.ch"
+languageCode = "en-us"
+title = "elisei's blog"
+theme = "archie"
+timeZone = "Europe/Zurich"
+
+copyright = "Lucas Elisei"
+
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+paginate = 5    # Articles per page
+
+[permalinks]
+    posts = "/posts/:title"
+
+[params]
+    mode = "toggle"     # Color mode (light, dark, toggle, auto)
+    useCDN = true       # true: use CDN for fonts and icons; false: server them locally
+    subtitle = "Technical blog about embedded systems and other fields."
+
+[[params.social]]
+    name = "GitHub"
+    icon = "github"
+    url = "https://github.com/faku99"
+
+[[params.social]]
+    name = "E-mail"
+    icon = "mail"
+    url = "mailto://lucas@elisei.ch"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = 2
+
+[[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 9
