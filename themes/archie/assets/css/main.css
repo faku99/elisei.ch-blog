@@ -59,11 +59,7 @@ ul {
   text-indent: -1rem;
 }
 ul li {
-  /* text-indent: 0; */
   text-align: left;
-}
-ul > li {
-  margin-top: 10px;
 }
 ul > li::before {
   content: '- ';
