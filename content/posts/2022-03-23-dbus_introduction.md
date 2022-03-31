@@ -139,6 +139,48 @@ signals are entirely asynchronous and may be emitted by D-Bus objects at any tim
 
 ## Less theory, more practice
 
+### Foreplay
+
+First, let's illustrate a bit of what you just read -- for the brave ones. Open up your favorite terminal emulator and
+execute the following command:
+
+```console
+$ dbus-send --system --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.ListNames
+```
+
+The output should look like the following (some output has been cropped out):
+
+```
+method return time=1648730206.299637 sender=org.freedesktop.DBus -> destination=:1.252 serial=4294967295 reply_serial=2
+   array [
+      string "org.freedesktop.DBus"
+      string ":1.0"
+      string ":1.1"
+      string ":1.2"
+      string ":1.3"
+      string "org.freedesktop.home1"
+      string "org.freedesktop.login1"
+      string "org.freedesktop.oom1"
+      string "org.freedesktop.problems.daemon"
+      string "org.freedesktop.resolve1"
+      string "org.freedesktop.systemd1"
+   ]
+```
+
+But, let's get back to the command you executed several seconds ago. What does it do exactly? Well, `dbus-send` is used
+to send a message to a D-Bus message bus. The `--system` option directs `dbus-send` to send messages to the system bus.
+`--print-reply` means the command waits for a reply to the message sent, and prints it. With `--dest`, we specify the
+name of the service to receive the message.
+
+Since you **rigorously** read the theorical part, you should have deduced that `/org/freedesktop/DBus` is the object
+path. And finally, `org.freedesktop.DBus.ListNames` is the interface member we want to call. In this example, the member
+is a method. Thus our D-Bus message is a method call.
+
+So, in substance, this command simply lists all the D-Bus services available on the system bus. Now, let's move on how
+to register a service on this bus.
+
+### A bit of C
+
 
 
 # References
